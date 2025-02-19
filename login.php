@@ -1,73 +1,59 @@
-<?php
-session_start();
-include "koneksi.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Login</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    <body style="background-color: oldlace">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header" style="background-color: #f699cd"><h3 class="text-center font-weight-light my-4">Login </h3></div>
-                                    <div class="card-body" style="background-color: #fae5d3">
-                                        <?php
-                                        if(isset($_POST['login'])) {
-                                            $username = $_POST['username'];
-                                            $password = md5($_POST['password']);   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>MY TODO LIST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFCFCF;">
+  <div class="container">
+    <a class="navbar-brand" href="index.php">MY TODO LIST</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mt-2" id="navbarNav">
+        <div class="navbar-nav me-auto">
+        </div>
+            <a href="register.php" class="btn btn-outline-primary bg-light m-1">sign in</a>
+            <a href="login.php" class="btn btn-outline-light btn-primary m-1">log in</a>
+        </div>
+    </div>
+</nav>
 
-                                            $data = mysqli_query($koneksi, "SELECT*FROM users where username='$username' and password='$password'");
-                                            $cek = mysqli_num_rows($data);
-                                            if($cek > 0){
-                                                $_SESSION['users'] = mysqli_fetch_array($data);
-                                                echo '<script>alert("Selamat Datang, Login Berhasil"); location.href="index.php";</script>';
-                                            }else{
-                                                echo '<script>alert("Maaf, Username/Password Salah")</script>';
-                                            }
-                                        }
-                                        ?>
-                                        <form method="post">
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" name="username" placeholder="Enter Username " />
-                                                <label for="inputEmail">Username</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Password</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <button class="btn btn-outline-primary" type="submit" name="login" value="login">Login</button>
-                                                <a class="btn btn-outline-dark" href="register.php">Register</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3" style="background-color: khaki">
-                                        <div class="small"><a href="register.php">
-                                            &copy;
-                                        </a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body" style="background-color: #FFCFCF;" text-light>
+                    <div class="text-center">
+                        <h5>Login Website</h5>
                     </div>
-                </main>
+                    <form action="config/aksi_login.php" method="POST">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    <div class="d-grid mt-2">
+                        <button class="btn btn-success" style="background-color: #AE445A;" type="submit" name="kirim">KIRIM</button>
+                    </div>
+                    </form>
+                    <hr>
+                    <p>Belum ada akun? <a href="register.php">Registrasi Disini</a></p>
+                </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+    </div>
+</div>
+
+
+<footer class="d-flex justify-content-center border-top mt-3 bd-light fixed-bottom" >
+</footer>
+
+
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
 </html>
