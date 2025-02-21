@@ -7,7 +7,7 @@
                     <?php
                         if(isset($_POST['submit'])) {
                             $category_id = $_POST['category_id'];
-                            $task = $_POST['task_id'];
+                            $task = $_POST['tasks_id'];
                             $query = mysqli_query($koneksi, "INSERT INTO tasks(category_id, task_id) VALUES ('$category_id', '$task_id')");
 
                             if($query) {

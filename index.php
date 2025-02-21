@@ -21,6 +21,19 @@
     <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color: #9B4444;">
         <a class="navbar-brand" href="index.html" style="padding-left: 20px; color: black; font-weight: bold;">My To Do List</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <div class="ms-auto me-4 d-flex align-items-center">
+                <form class="d-flex me-3" role="search">
+                    <div class="input-group">
+                        <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-info btn-sm" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <a href="profile.php"><i class="fa fa-user-circle fa-2x"></i>
+                </a>
+            </div>
+        </nav>
+                    </div>
+                </form>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
